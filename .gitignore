@@ -1,0 +1,28 @@
+.venv/
+venv/
+ENV/
+env/
+
+**/__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.hypothesis/
+.mypy_cache/
+.ruff_cache/
+
+# Playwright & Browser Binaries
+.playwright/
+playwright-report/
+test-results/
+
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+.env
+.env.local
+.env.*.local
+
+# Documentation Generation Trash
+readme_documentation.html

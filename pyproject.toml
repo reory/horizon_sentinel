@@ -1,7 +1,7 @@
 [project]
 name = "horizontal-sentinel"
 version = "0.1.0"
-description = "Add your description here"
+description = "Automated Intelligence & Audit Architecture Framework"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [

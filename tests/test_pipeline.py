@@ -1,9 +1,10 @@
 import pytest
-from hypothesis import given, strategies as st
+from hypothesis import given
+from hypothesis import strategies as st
+from sentinel.analyser import AnalysedRegulation, RegulatoryAnalyser
+from sentinel.auditor import BusinessProfile, ComplianceAuditor
+from sentinel.core import generate_fingerprint, secure_event, verify_integrity
 from sentinel.schema import RegEvent
-from sentinel.core import generate_fingerprint, verify_integrity, secure_event
-from sentinel.analyser import RegulatoryAnalyser, AnalysedRegulation
-from sentinel.auditor import ComplianceAuditor, BusinessProfile
 
 
 def test_crypto_shield_valid_seal():

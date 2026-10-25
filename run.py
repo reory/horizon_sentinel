@@ -1,8 +1,9 @@
 import asyncio
-from sentinel.ingestors import fetch_real_page
-from sentinel.core import verify_integrity, generate_fingerprint
+
 from sentinel.analyser import RegulatoryAnalyser
-from sentinel.auditor import ComplianceAuditor, BusinessProfile
+from sentinel.auditor import BusinessProfile, ComplianceAuditor
+from sentinel.core import generate_fingerprint, verify_integrity
+from sentinel.ingestors import fetch_real_page
 from sentinel.schema import RegEvent
 
 
@@ -26,7 +27,7 @@ async def main():
 
     try:
         live_event = await fetch_real_page(target_url, use_browser=True)
-    except Exception as e:
+    except Exception as e:  # noqa: BLE001 - top-level pipeline boundary, must not crash on any ingestion failure
         print(f"❌ CRITICAL Ingestion Failure: {e}")
         return
 

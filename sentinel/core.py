@@ -7,6 +7,7 @@ Use the hashlib library to create a digital seal.
 """
 
 import hashlib
+
 from sentinel.schema import RegEvent
 
 

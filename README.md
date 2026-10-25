@@ -134,7 +134,7 @@ uk_firm = BusinessProfile(
     handles_finance=True,
     handles_crypto=True,
     daily_transaction_limit_gbp=10000.0,
-    has_reporting_framework=False
+    has_reporting_framework=False,
 )
 ```
 If a mandatory regulation is ingested requiring systemic logging or asset declarations, and has_reporting_framework evaluates to False, the system immediately sounds a warning flag, dropping a 🔴 CRITICAL VIOLATION (HIGH RISK) report down onto your monitoring dashboard.
@@ -148,8 +148,11 @@ If a mandatory regulation is ingested requiring systemic logging or asset declar
 - [ ] Automated Slack & Email Webhooks:
 Instantly broadcast 🔴 CRITICAL violation alerts straight to compliance engineering communication channels the millisecond an audit fails.
 
-- [ ] Historical Time-Travel Auditing:
-Implement a database state-ledger using `SQLite` or `PostgreSQL` to track, version, and query shifts in regulatory rules over a multi-year timeline.
+- [ ] Dynamic Risk Score Calculation:
+Upgrade the Auditor matrix to weigh infractions numerically against transactional volume, converting risk scores into dynamic exposure values.
+
+- [ ] Centralized Executive Telemetry Dashboard:
+Expose a lightweight `FastAPI` endpoint displaying a crisp, browser-based UI to review real-time security seals and audit ledgers at a glance.
 
 - [ ] Multi-Regulator Source Parallelism:
 Scale the ingestion layer using asyncio.gather to concurrently scrape multiple compliance feeds (e.g., `FCA`, `SEC`, `FinCEN`) in a single workflow.
@@ -157,11 +160,8 @@ Scale the ingestion layer using asyncio.gather to concurrently scrape multiple c
 - [ ] LLM-Powered Constraint Parsing:
 Integrate local, lightweight AI models (e.g., Llama 3 via Ollama) to extract complex legal nuances that go beyond regex limitations.
 
-- [ ] Dynamic Risk Score Calculation:
-Upgrade the Auditor matrix to weigh infractions numerically against transactional volume, converting risk scores into dynamic exposure values.
-
-- [ ] Centralized Executive Telemetry Dashboard:
-Expose a lightweight `FastAPI` endpoint displaying a crisp, browser-based UI to review real-time security seals and audit ledgers at a glance.
+- [ ] Historical Time-Travel Auditing:
+Implement a database state-ledger using `SQLite` or `PostgreSQL` to track, version, and query shifts in regulatory rules over a multi-year timeline.
 
 ---
 

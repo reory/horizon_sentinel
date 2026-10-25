@@ -4,7 +4,9 @@ thresholds, and business impacts from raw data
 """
 
 import re
+
 from pydantic import BaseModel
+
 from sentinel.schema import RegEvent
 
 

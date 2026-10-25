@@ -3,8 +3,9 @@
 import httpx
 from bs4 import BeautifulSoup
 from playwright.async_api import async_playwright
-from sentinel.schema import RegEvent
+
 from sentinel.core import secure_event
+from sentinel.schema import RegEvent
 
 
 def get_mock_update() -> RegEvent:

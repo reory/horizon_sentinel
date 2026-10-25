@@ -4,6 +4,7 @@ to flag operational discrepancies or compliance non-conformances.
 """
 
 from pydantic import BaseModel
+
 from sentinel.analyser import AnalysedRegulation
 
 
@@ -52,16 +53,16 @@ class ComplianceAuditor:
             )
 
         # Obligation intensity check
-        if regulation.obligation_level == "🔴 MANDATORY REQUIREMENT (CRITICAL)":
-            if (
-                "reporting" in regulation.impact_keywords
-                and not profile.has_reporting_framework
-            ):
-                is_compliant = False
-                findings.append(
-                    "🚫 NON-CONFORMANCE: This rule mandates active reporting "
-                    "but the firm lacks an active reporting framework."
-                )
+        if (
+            regulation.obligation_level == "🔴 MANDATORY REQUIREMENT (CRITICAL)"
+            and "reporting" in regulation.impact_keywords
+            and not profile.has_reporting_framework
+        ):
+            is_compliant = False
+            findings.append(
+                "🚫 NON-CONFORMANCE: This rule mandates active reporting "
+                "but the firm lacks an active reporting framework."
+            )
 
         # Default safe confirmation if no gaps are found
         if not findings:

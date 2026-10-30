@@ -1,6 +1,7 @@
 import pytest
 from hypothesis import given
 from hypothesis import strategies as st
+
 from sentinel.analyser import AnalysedRegulation, RegulatoryAnalyser
 from sentinel.auditor import BusinessProfile, ComplianceAuditor
 from sentinel.core import generate_fingerprint, secure_event, verify_integrity

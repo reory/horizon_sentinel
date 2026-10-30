@@ -1,4 +1,4 @@
-# mock ingestor for mock data while building the pipeline.
+"""mock ingestor for mock data while building the pipeline."""
 
 import httpx
 from bs4 import BeautifulSoup

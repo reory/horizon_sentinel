@@ -21,6 +21,64 @@ HorizonSentinel is an async Python pipeline automating regulatory compliance by:
 
 ---
 
+## 📑 Table of Contents
+
+- [Screenshots](#-screenshots)
+- [Architectural Pipeline](#-architectural-pipeline)
+- [Project Structure](#-project-structure)
+- [Installation](#-installation)
+- [Deep-Dive System Mechanics](#-deep-dive-system-mechanics)
+- [Cryptographic Immutability Rules](#-cryptographic-immutability-rules-sentinelcorepy)
+- [Metric Constraint Parsing](#-metric-constraint-parsing-sentinelanalyserpy)
+- [Risk Profile Auditing](#-risk-profile-auditing-sentinelauditorpy)
+- [Roadmap Features](#-roadmap-features)
+
+---
+
+## 🕵🏼‍♀️ The Problem
+
+Regulatory guidance changes frequently across financial,
+compliance, and governance domains.
+
+Organisations often rely on manual monitoring,
+spreadsheet tracking, or fragmented processes
+to determine whether new requirements impact
+their operations.
+
+This creates the risk of:
+
+- Missed regulatory changes
+- Outdated compliance controls
+- Audit traceability gaps
+- Operational risk exposure
+
+## ✅ The Solution
+
+Horizon Sentinel automates the process by:
+
+- Monitoring regulatory sources**
+- Extracting important obligations
+- Cryptographically sealing collected data
+- Auditing requirements against business profiles
+- Highlighting potential compliance violations
+
+The result is a repeatable and auditable compliance workflow.
+
+---
+
+## ✨ Key Features
+
+- Automated regulatory scraping
+- HTTPX and Playwright ingestion pipelines
+- SHA-256 integrity validation
+- Pydantic schema enforcement
+- Rule extraction and classification
+- Risk profile auditing
+- Compliance violation detection
+- Property-based testing with Hypothesis
+
+---
+
 ## 📸 Screenshots
 - Full project pipeline
 ![Full Pipeline](screenshots/horizontalsentinel.png)
@@ -29,8 +87,7 @@ HorizonSentinel is an async Python pipeline automating regulatory compliance by:
 
 ---
 
-<details>
-    <summary>🏭 Architectural Pipeline</summary>
+🏭 Architectural Pipeline
 
 | Phase | Functional Protocol Responsibility | Module Reference |
 | :--- | :--- | :--- |
@@ -39,11 +96,10 @@ HorizonSentinel is an async Python pipeline automating regulatory compliance by:
 | **Analyser Engine** | Uses regex parsers and metric triggers to parse financial transaction limits, percentages, domain tags, and mandatory rulesets. | `sentinel/analyser.py` |
 | **Auditor Matrix** | Evaluates parsed regulation metadata directly against an active company operational profile to uncover friction gaps. | `sentinel/auditor.py` |
 
-</details>
-
 ---
 
-## 📁 Project Structure
+<details>
+    <summary>📁 Project Structure</summary>
 
 ```python
 ├── pyproject.toml            # Global project configuration & dependency management
@@ -53,18 +109,19 @@ HorizonSentinel is an async Python pipeline automating regulatory compliance by:
 └── sentinel/
     ├── __init__.py           
     ├── analyser.py           # Regulatory processing and regex extraction matrix 
-    ├── auditor.py            # Business logic comparison checking module
-    ├── core.py               # SHA-256 deterministic cryptographic signature layer
-    ├── ingestors.py          # Dual HTTPX / Playwright automated data ingestion engine
+    ├── auditor.py            # Compliance auditing module
+    ├── core.py               # SHA-256 integrity validation module
+    ├── ingestors.py          # HTTPX / Playwright automated data ingestion engine
     └── schema.py             # Strict Pydantic models (RegEvent data blueprint)
 └── tests/                    # Pytest/Hypothesis suite
     └── test_pipeline.py
 ```
+</details>
 
 ---
-
-## 🏗️ Installation
-This system utilizes uv for lightning-fast dependency management and isolated virtual runtime setups.
+<details>
+    <summary>🏗️ Installation</summary>
+This system utilises uv for lightning-fast dependency management and isolated virtual runtime setups.
 
 ### Setup the Environment Dependencies
 Run the following commands within your terminal profile to sync requirements:
@@ -78,7 +135,7 @@ cd horizontal_sentinel
 uv add beautifulsoup4 playwright pydantic httpx fastapi cryptography pytest hypothesis
 ```
 
-### Initialize dynamic headless browser system dependencies
+### Initialise dynamic headless browser system dependencies
 ```bash
 uv run playwright install chromium
 ```
@@ -87,6 +144,7 @@ Fire up the full runtime pipeline wrapper script (Ingest ➔ Cryptographic Seal 
 ```Bash
 uv run run.py
 ```
+</details>
 
 ---
 
@@ -111,7 +169,7 @@ def verify_integrity(event: RegEvent) -> bool:
 <details>
     <summary>📊 Metric Constraint Parsing (sentinel/analyser.py)</summary>
 
-- The system strips raw code patterns down into clear, standardized metadata structures:
+- The system strips raw code patterns down into clear, standardised metadata structures:
 
 - extracted_thresholds: Scans the payload text using regex metrics to isolate financial numbers matching bounds like £10k, $50,000, or 25%.
 
@@ -151,7 +209,7 @@ Instantly broadcast 🔴 CRITICAL violation alerts straight to compliance engine
 - [ ] Dynamic Risk Score Calculation:
 Upgrade the Auditor matrix to weigh infractions numerically against transactional volume, converting risk scores into dynamic exposure values.
 
-- [ ] Centralized Executive Telemetry Dashboard:
+- [ ] Centralised Executive Telemetry Dashboard:
 Expose a lightweight `FastAPI` endpoint displaying a crisp, browser-based UI to review real-time security seals and audit ledgers at a glance.
 
 - [ ] Multi-Regulator Source Parallelism:
